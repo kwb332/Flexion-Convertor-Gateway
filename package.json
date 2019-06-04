@@ -1,0 +1,34 @@
+{
+  "name": "event-plan-server",
+  "version": "1.0.0",
+  "description": "Node Express Server - Enabled by GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "test": "ng test",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwb332/Flexion-Convertor-Gateway.git"
+  },
+  "keywords": [
+    "conversion",
+    "Exam"
+  ],
+  "author": "Kwame Baah-Apraku",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kwb332/Flexion-Convertor-Gateway/issues"
+  },
+  "homepage": "https://github.com/kwb332/Flexion-Convertor-Gateway#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-graphql": "^0.8.0",
+    "graphql": "^14.3.0",
+    "graphql-iso-date": "^3.6.1",
+    "lodash": "^4.17.11",
+    "mongodb": "^3.2.4",
+    "mongoose": "^5.5.8"
+  }
+}
