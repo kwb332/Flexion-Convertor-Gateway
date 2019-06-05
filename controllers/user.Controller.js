@@ -1,26 +1,70 @@
 var _= require("lodash");
 var Event = require('../models/exam.model');
+import 'cross-fetch/polyfill';
+import ApolloClient, { gql } from 'apollo-boost';
+
+const client = new ApolloClient({
+  uri: 'http://flexionuserapi.azurewebsites.net/graphql',
+});
 
  class UserController {
    
     constructor() {  }
-    getStudents() { 
-        var events = async function() {
-            return await Event.find(function(err,events)
+   /* getStudents() { 
+        var data = null;
+        client
+        .query({
+          query: gql`query
+          {
+            students
             {
-                if(err)
+              userId
+              firstName
+              lastName
+              roleName
+              userRoleId
+            }
+          }
+          `,
+        })
+        .then(response => console.log(response.data));
+
+
+     }*/
+
+     getStudents() { 
+        let foundEvent = null;
+        var students = async function(res) { 
+            
+            await  client
+            .query({
+              query: gql`query
+              {
+                students
                 {
-                    console.log(err);
+                  userId
+                  firstName
+                  lastName
+                  roleName
+                  userRoleId
                 }
-                if(events)
-                {
-                
-                }
-               
-            });
-             
-         }
-         return events;
+              }
+              `,
+            })
+            .then(response => foundEvent = response.data);
+               console.log("im the man");
+               console.log(foundEvent);
+               return foundEvent;
+              
+        }
+
+        students().then(returner(res));
+
+     }
+
+     returner(res)
+     {
+         return res;
      }
      getStudent()
      {
