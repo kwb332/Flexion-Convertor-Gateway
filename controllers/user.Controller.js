@@ -10,32 +10,11 @@ const client = new ApolloClient({
  class UserController {
    
     constructor() {  }
-   /* getStudents() { 
-        var data = null;
-        client
-        .query({
-          query: gql`query
-          {
-            students
-            {
-              userId
-              firstName
-              lastName
-              roleName
-              userRoleId
-            }
-          }
-          `,
-        })
-        .then(response => console.log(response.data));
-
-
-     }*/
-
+ 
      getStudents() { 
-        let foundEvent = null;
         var students = async function(res) { 
-            
+         
+            let results = null;
             await  client
             .query({
               query: gql`query
@@ -51,81 +30,89 @@ const client = new ApolloClient({
               }
               `,
             })
-            .then(response => foundEvent = response.data);
-               console.log("im the man");
-               console.log(foundEvent);
-               return foundEvent;
-              
+            .then(response => results = response);
+               return results.data.students;
         }
-
-        students().then(returner(res));
-
+        return students;
      }
-
-     returner(res)
-     {
-         return res;
-     }
+    
      getStudent()
      {
-        var _event = async function(args,res) { 
-            var id = args.id;
-            let foundEvent = null;
-            await Event.findById(id, function(err,event)
-            {
-               if(err)  
-               {
-                   console.log(err);
-               }
-                if(event)
-                {
-                    foundEvent = event;
+        var student = async function(args,res) { 
+            var id = args.userID;
+            let results = null;
+            await  client
+            .query({
+              query: gql`
+              query studentByID($userID: Int!) {
+                studentByID(userID: $userID) {
+                  userId
+                  firstName
+                  lastName
+                  roleName
+                  userRoleId
                 }
-            }
-            );
-               return foundEvent;
+              }              
+              `,
+              variables: {
+                userID: id,
+              },
+            })
+            .then(response => results = response);
+               return results.data.studentByID;
         }
-        return _event;
+        return student;
      }
      getTeachers() { 
-        var events = async function() {
-            return await Event.find(function(err,events)
-            {
-                if(err)
+        var teachers = async function(res) { 
+         
+            let results = null;
+            await  client
+            .query({
+              query: gql`query
+              {
+                teachers
                 {
-                    console.log(err);
+                    userId
+                    firstName
+                    lastName
+                    roleName
+                    userRoleId
                 }
-                if(events)
-                {
-                
-                 
-                }
-               
-            });
-             
-         }
-         return events;
+              }
+              `,
+            })
+            .then(response => results = response);
+               return results.data.teachers;
+        }
+        return teachers;
      }
      getTeacher()
      {
-        var _event = async function(args,res) { 
-            var id = args.id;
-            let foundEvent = null;
-            await Event.findById(id, function(err,event)
-            {
-               if(err)  
-               {
-                   console.log(err);
-               }
-                if(event)
-                {
-                    foundEvent = event;
+        var teacher = async function(args,res) { 
+            var id = args.userID;
+            let results = null;
+            await  client
+            .query({
+              query: gql`
+              query teacherByID($userID: Int!) {
+                teacherByID(userID: $userID) {
+                  userId
+                  firstName
+                  lastName
+                  roleName
+                  userRoleId
                 }
-            }
-            );
-               return foundEvent;
+              }              
+              `,
+              variables: {
+                userID: id,
+              },
+            })
+            .then(response => results = response);
+               return results.data.teacherByID;
         }
-        return _event;
+        return teacher;
      }
    /*  updateEvent()
      {

@@ -2,9 +2,9 @@ var { buildSchema } = require('graphql');
 
 var schema = buildSchema(`
 type Query {
-    studentByID(userID: String!): StudentType
+    studentByID(userID: Int!): StudentType
     students : [StudentType]
-    teacherByID(userID: String!): TeacherType
+    teacherByID(userID: Int!): TeacherType
     teachers : [TeacherType]
 },
 
