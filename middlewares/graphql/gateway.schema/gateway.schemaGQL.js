@@ -6,6 +6,8 @@ type Query {
     students : [StudentType]
     teacherByID(userID: Int!): TeacherType
     teachers : [TeacherType]
+    reportByExamID(examID:Int!): [ReportType]
+    reportByUserID(examID:Int!, userID:Int!): [ReportType]
 },
 
 type StudentType {
@@ -15,12 +17,48 @@ type StudentType {
     roleName: String
     userRoleId: String
 },
+
 type TeacherType {
     userId: String
     firstName: String
     lastName: String
     roleName: String
     userRoleId: String
+},
+type ReportType {
+    examId: Int
+    examDescription: String
+    examDate: String
+    inputValue: Float
+    teacherName:String  
+    studentID: Int
+    studentName: String
+    studentResponse:Float
+    isCorrect: Boolean
+    inputUnitOfMeasure: String 
+    outPutUnitOfMeasure: String
+
+},
+
+input ReportInput{
+    examID: Int
+    examDate: String
+    inputValue: Float
+    teacherName:String  
+    studentID: Int
+    studentName: String
+    studentResponse:Float
+    isCorrect: Boolean
+    examDescription: String 
+    inputUnitOfMeasure: String 
+    outPutUnitOfMeasure: String
+
+},
+
+
+type Mutation {
+    addReport(reportAdd: ReportInput!): Boolean
+   
 }
 `);
 module.exports = schema;
