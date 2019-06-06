@@ -8,6 +8,32 @@ type Query {
     teachers : [TeacherType]
     reportByExamID(examID:Int!): [ReportType]
     reportByUserID(examID:Int!, userID:Int!): [ReportType]
+    exams:[ExamType]
+    examByID(examID: Int!) : ExamType
+    examByUserID(userID: Int!) : [ExamType]
+    conversions : [ConvertionType]
+    conversionByID(conversionID : Int!) : ConvertionType
+    examQuestions(examID : Int!) : [ExamQuestionType]
+},
+type ConvertionType{
+    conversionId : Int
+    conversionValue : Float
+    conversionName : String
+    conversionTypeId : Int
+    conversionTypeName: String
+},
+
+type ExamQuestionType
+{
+    answer : String
+    examQuestionId : Int
+    description : String
+    inputValue : Float
+    sourceConversionID : Int
+    sourceConversionName : String
+    destinationConversionID : Int
+    destinationConversionName : String
+    examId : Int
 },
 
 type StudentType {
@@ -54,55 +80,50 @@ input ReportInput{
     outPutUnitOfMeasure: String
 
 },
+type ExamType {
+    dateCompleted : String
+    dateCreated : String
+    description : String
+    examId : Int
+    isComplete : Boolean
+    isCreated : Boolean
+    isGraded : Boolean
+    studentId : Int
+    teacherId : Int
+},
 
+input AddExamQuestionInput{
+    examID: Int
+    sourceConversionId: Int
+    inputValue: Float
+    destinationConversionId: Int
+},
+
+input ExamInput{
+      examId : Int
+      description: String
+      examDate: String
+      studentId: Int
+      isComplete : Boolean
+      isGraded: Boolean
+      isCreated: Boolean
+      teacherId: Int 
+      dateCreated: String
+    
+},
+input AddExamAnswerInput{
+    examQuestionId: Int
+    answer : Float
+}
 
 type Mutation {
     addReport(reportAdd: ReportInput!): Boolean
-   
+    addExam(examAdd: ExamInput!) : Boolean
+    addQuestion(questionAdd: AddExamQuestionInput!) : Boolean
+    addAnswer(answerAdd: AddExamAnswerInput!) : Boolean
+    submitToStudent(submitStudent: ExamInput!) :Boolean
+    submitToTeacher(submitTeacher:ExamInput!) : [ReportType] 
 }
 `);
 module.exports = schema;
 
-/*
-type Query {
-    studentByID(userID: String!): StudentType
-    students : [StudentType]
-},
-
-input EventInput {
-    title: String
-    poster: String
-    type: String
-    description: String
-    street: String
-    state: String
-    primaryColor: String,
-    secondaryColor: String,
-    startDate: String
-    endDate: String
-},
-input EventUpdateInput {
-    _id: String
-    title: String
-    poster: String
-    type: String
-    description: String
-    street: String
-    state: String
-    primaryColor: String,
-    secondaryColor: String,
-    startDate: String
-    endDate: String
-},
-type StudentType {
-    userId: String
-    firstName: String
-    lastName: String
-    roleName: String
-    userRoleId: String
-},
-type Mutation {
-    updateEvent(updateEvent: EventUpdateInput!): Event
-    addEvent(newEvent : EventInput!): Boolean
-    deleteEvent(_id : String!) : Boolean
-}*/

@@ -1,5 +1,5 @@
 var _= require("lodash");
-var Event = require('../models/exam.model');
+
 import 'cross-fetch/polyfill';
 import ApolloClient, { gql } from 'apollo-boost';
 
@@ -11,30 +11,7 @@ const client = new ApolloClient({
   
     constructor() {  }
 
-    getStudents() { 
-      var students = async function(res) { 
-       
-          let results = null;
-          await  client
-          .query({
-            query: gql`query
-            {
-              students
-              {
-                userId
-                firstName
-                lastName
-                roleName
-                userRoleId
-              }
-            }
-            `,
-          })
-          .then(response => results = response);
-             return results.data.students;
-      }
-      return students;
-   }
+ 
   
    addReport()
    {
@@ -58,30 +35,7 @@ const client = new ApolloClient({
       }
       return report;
    }
-   getTeachers() { 
-      var teachers = async function(res) { 
-       
-          let results = null;
-          await  client
-          .query({
-            query: gql`query
-            {
-              teachers
-              {
-                  userId
-                  firstName
-                  lastName
-                  roleName
-                  userRoleId
-              }
-            }
-            `,
-          })
-          .then(response => results = response);
-             return results.data.teachers;
-      }
-      return teachers;
-   }
+  
    reportByExamID()
    {
       var reports = async function(args,res) { 
@@ -167,10 +121,6 @@ const client = new ApolloClient({
 
  let reportController = new ReportController();
  
-
-
-
-
 
 
 
