@@ -2,7 +2,7 @@
   "name": "flexion-microservice-gateway",
   "version": "1.0.0",
   "description": "Node Express Server - Enabled by GraphQL",
-  "main": "index.js",
+  "main": "start.js",
   "scripts": {
     "test": "ng test",
     "start": "node start.js"
