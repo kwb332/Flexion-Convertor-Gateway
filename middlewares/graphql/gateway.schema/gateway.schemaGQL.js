@@ -11,6 +11,7 @@ type Query {
     exams:[ExamType]
     examByID(examID: Int!) : ExamType
     examByUserID(userID: Int!) : [ExamType]
+    examByTeacherID(userID: Int!) : [ExamType]
     conversions : [ConvertionType]
     conversionByID(conversionID : Int!) : ConvertionType
     examQuestions(examID : Int!) : [ExamQuestionType]

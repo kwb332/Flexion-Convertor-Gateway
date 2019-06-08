@@ -7,6 +7,10 @@ const client = new ApolloClient({
   uri: 'http://flexionreportapi.azurewebsites.net/graphql',
 });
 
+const userclient = new ApolloClient({
+   uri: 'http://flexionuserapi.azurewebsites.net/graphql',
+ });
+
  class ReportController {
   
     constructor() {  }

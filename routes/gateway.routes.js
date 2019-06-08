@@ -24,8 +24,8 @@ var root = {
     examByUserID: examController.examByUserID(),
     conversions : examController.getConversions(),
     conversionByID : examController.getConversionByID(),
-    examQuestions : examController.examQuestionsByExamID()
-
+    examQuestions : examController.examQuestionsByExamID(),
+    examByTeacherID :  examController.examByTeacherID()
   };
 
 module.exports = root;

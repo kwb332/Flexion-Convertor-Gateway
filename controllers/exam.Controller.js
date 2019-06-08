@@ -234,6 +234,44 @@ const client = new ApolloClient({
       }
       return exams;
    }
+   examByTeacherID()
+   {
+     
+      var exams = async function(args,res) { 
+          var id = args.userID;
+          console.log(id);
+          let results = null;
+          await  client
+          .query({
+            query: gql`
+            query examByTeacherID($teacherID: Int!) {
+               examByTeacherID(teacherID: $teacherID) {
+                 dateCompleted
+                 dateCreated
+                 description
+                 examId
+                 isComplete
+                 isCreated
+                 isGraded
+                 studentId
+                 teacherId
+               }
+             }
+                   
+            `,
+            variables: {
+               teacherID: id,
+            },
+          })
+          .then(response => {results = response},
+            error=>{
+                console.log(error);
+            }
+            );
+             return results.data.examByTeacherID;
+      }
+      return exams;
+   }
 
    getConversions() { 
       var conversions = async function(res) { 
