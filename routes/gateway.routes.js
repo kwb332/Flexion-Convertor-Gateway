@@ -11,6 +11,7 @@ var root = {
     teachers: userController.getTeachers(),
     teacherByID: userController.getTeacher(),
     addReport : reportController.addReport(),
+    addReports : reportController.addReports(),
     reportByExamID: reportController.reportByExamID(),
     reportByUserID: reportController.reportByUserID(),
     addExam: examController.addExam(),
@@ -24,6 +25,7 @@ var root = {
     conversions : examController.getConversions(),
     conversionByID : examController.getConversionByID(),
     examQuestions : examController.examQuestionsByExamID()
+
   };
 
 module.exports = root;

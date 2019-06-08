@@ -118,6 +118,7 @@ input AddExamAnswerInput{
 
 type Mutation {
     addReport(reportAdd: ReportInput!): Boolean
+    addReports(reportAdd: [ReportInput!]): Boolean
     addExam(examAdd: ExamInput!) : Boolean
     addQuestion(questionAdd: AddExamQuestionInput!) : Boolean
     addAnswer(answerAdd: AddExamAnswerInput!) : Boolean

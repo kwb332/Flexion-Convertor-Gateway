@@ -30,10 +30,33 @@ const client = new ApolloClient({
             },
           })
           .then(response => results = response);
-          console.log("No More PAin");
              return results.data.addReport;
       }
       return report;
+   }
+
+   addReports()
+   {
+      var reports = async function(args,res) { 
+          var reportData = args.reportAdd;
+          console.log(reportData);
+          let results = null;
+          await  client
+          .mutate({
+            mutation:gql`
+            mutation addReports($reportAdd: [AddReportInput]!) {
+               addReports(reportAdd: $reportAdd)
+             }
+            `,
+            variables: {
+               reportAdd: reportData,
+            },
+          })
+          .then(response => results = response);
+         
+             return results.data.addReports;
+      }
+      return reports;
    }
   
    reportByExamID()
