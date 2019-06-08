@@ -238,7 +238,7 @@ const client = new ApolloClient({
    {
      
       var exams = async function(args,res) { 
-          var id = args.userID;
+          var id = args.teacherID;
           console.log(id);
           let results = null;
           await  client
