@@ -70,6 +70,7 @@ const userclient = new ApolloClient({
           let results = null;
           await  client
           .query({
+            fetchPolicy: 'network-only',
             query: gql`
             query reportByExamID($examID: Int!) {
                reportByExamID(examID: $examID) {
@@ -102,12 +103,13 @@ const userclient = new ApolloClient({
    reportByUserID()
    {
       var reports = async function(args,res) { 
-         console.log(args);
+      
           var examid = args.examID;
           var userid = args.userID;
           let results = null;
           await  client
           .query({
+            fetchPolicy: 'network-only',
             query: gql`
             query reportByUserID($examID: Int!, $userID: Int! ) {
                reportByUserID(examID: $examID, userID : $userID) {

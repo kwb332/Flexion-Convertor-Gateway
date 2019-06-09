@@ -135,6 +135,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .query({
+            fetchPolicy: 'network-only',
             query: gql` query
             {
               exams {
@@ -166,6 +167,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .query({
+            fetchPolicy: 'network-only',
             query: gql`
             query examByID($examID: Int!) {
                examByID(examID: $examID) {
@@ -201,10 +203,10 @@ const client = new ApolloClient({
      
       var exams = async function(args,res) { 
           var id = args.userID;
-          console.log(id);
           let results = null;
           await  client
           .query({
+            fetchPolicy: 'network-only',
             query: gql`
             query examByUserID($userID: Int!) {
                examByUserID(userID: $userID) {
@@ -243,6 +245,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .query({
+            fetchPolicy: 'network-only',
             query: gql`
             query examByTeacherID($teacherID: Int!) {
                examByTeacherID(teacherID: $teacherID) {
@@ -279,6 +282,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .query({
+            fetchPolicy: 'network-only',
             query: gql`query
             {
               conversions {
@@ -306,6 +310,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .query({
+            fetchPolicy: 'network-only',
             query: gql`
             query conversionByID($conversionID: Int!) {
                conversionByID(conversionID: $conversionID) {
@@ -343,6 +348,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .query({
+            fetchPolicy: 'network-only',
             query: gql`
             query examQuestions($examID: Int!) {
                examQuestions(examID: $examID) {
