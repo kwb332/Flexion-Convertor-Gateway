@@ -48,9 +48,9 @@ const userclient = new ApolloClient({
           await  client
           .mutate({
             mutation:gql`
-            mutation addReports($reportAdd: [AddReportInput]!) {
+            mutation addReports($reportAdd : [AddReportInput]!) {
                addReports(reportAdd: $reportAdd)
-             }
+             }             
             `,
             variables: {
                reportAdd: reportData,

@@ -68,7 +68,7 @@ type ReportType {
 },
 
 input ReportInput{
-    examID: Int
+    examId: Int
     examDate: String
     inputValue: Float
     teacherName:String  
