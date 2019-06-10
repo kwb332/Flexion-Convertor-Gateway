@@ -24,6 +24,7 @@ const userclient = new ApolloClient({
           let results = null;
           await  client
           .mutate({
+            fetchPolicy: 'no-cache',
             mutation:gql`
             mutation addReport($reportAdd: AddReportInput!) {
                addReport(reportAdd: $reportAdd)
@@ -47,6 +48,7 @@ const userclient = new ApolloClient({
           let results = null;
           await  client
           .mutate({
+            fetchPolicy: 'no-cache',
             mutation:gql`
             mutation addReports($reportAdd : [AddReportInput]!) {
                addReports(reportAdd: $reportAdd)

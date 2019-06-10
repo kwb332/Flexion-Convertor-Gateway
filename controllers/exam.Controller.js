@@ -20,6 +20,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .mutate({
+            fetchPolicy: 'no-cache',
             mutation:gql`
             mutation addExam($examAdd: ExamInput!) {
                addExam(examAdd: $examAdd)
@@ -42,6 +43,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .mutate({
+            fetchPolicy: 'no-cache',
             mutation:gql`
             mutation addQuestion($questionAdd: AddExamQuestionInput!) {
                addQuestion(questionAdd: $questionAdd)
@@ -63,6 +65,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .mutate({
+            fetchPolicy: 'no-cache',
             mutation:gql`
             mutation addAnswer($answerAdd: AddExamAnswerInput!) {
                addAnswer(answerAdd: $answerAdd)
@@ -84,6 +87,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .mutate({
+            fetchPolicy: 'no-cache',
             mutation:gql`
             mutation submitExamToStudent($submitStudent: ExamInput!) {
                submitToStudent(submitStudent: $submitStudent)
@@ -105,6 +109,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .mutate({
+            fetchPolicy: 'no-cache',
             mutation:gql`
             mutation submitToTeacher($submitTeacher: ExamInput!) {
                submitToTeacher(submitTeacher: $submitTeacher) {
@@ -135,6 +140,7 @@ const client = new ApolloClient({
           let results = null;
           await  client
           .query({
+      
             fetchPolicy: 'network-only',
             query: gql` query
             {
