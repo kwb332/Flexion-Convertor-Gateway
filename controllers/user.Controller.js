@@ -16,6 +16,7 @@ const client = new ApolloClient({
             let results = null;
             await  client
             .query({
+              fetchPolicy: 'network-only',
               query: gql`query
               {
                 students
@@ -42,6 +43,7 @@ const client = new ApolloClient({
             let results = null;
             await  client
             .query({
+              fetchPolicy: 'network-only',
               query: gql`
               query studentByID($userID: Int!) {
                 studentByID(userID: $userID) {
@@ -68,6 +70,7 @@ const client = new ApolloClient({
             let results = null;
             await  client
             .query({
+              fetchPolicy: 'network-only',
               query: gql`query
               {
                 teachers
@@ -93,6 +96,7 @@ const client = new ApolloClient({
             let results = null;
             await  client
             .query({
+              fetchPolicy: 'network-only',
               query: gql`
               query teacherByID($userID: Int!) {
                 teacherByID(userID: $userID) {
