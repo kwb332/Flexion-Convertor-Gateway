@@ -117,6 +117,7 @@ const client = new ApolloClient({
                  examDate
                  examId
                  inputUnitOfMeasure
+                 examDescription
                  inputValue
                  isCorrect
                  outPutUnitOfMeasure
