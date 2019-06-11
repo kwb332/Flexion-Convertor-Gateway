@@ -110,6 +110,8 @@ input ExamInput{
       isCreated: Boolean
       teacherId: Int 
       dateCreated: String
+      teacherName: String
+      studentName: String
     
 },
 input AddExamAnswerInput{

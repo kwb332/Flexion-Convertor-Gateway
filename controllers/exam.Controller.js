@@ -120,6 +120,7 @@ const client = new ApolloClient({
                  isCorrect
                  outPutUnitOfMeasure
                  studentName
+                 teacherName
                  studentResponse
                }
              }             
