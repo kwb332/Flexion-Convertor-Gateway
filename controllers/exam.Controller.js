@@ -106,6 +106,7 @@ const client = new ApolloClient({
    {
       var submit = async function(args,res) { 
           var examData = args.submitTeacher;
+          console.log(examData);
           let results = null;
           await  client
           .mutate({
