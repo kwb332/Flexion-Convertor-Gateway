@@ -78,6 +78,7 @@ const userclient = new ApolloClient({
                reportByExamID(examID: $examID) {
                   examId
                   examDate 
+                  examDescription
                   studentResponse
                   studentID
                   studentName
@@ -117,6 +118,7 @@ const userclient = new ApolloClient({
                reportByUserID(examID: $examID, userID : $userID) {
                   examId
                   examDate 
+                  examDescription
                   studentResponse
                   studentID
                   studentName
