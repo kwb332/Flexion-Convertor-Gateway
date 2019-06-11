@@ -82,6 +82,7 @@ const userclient = new ApolloClient({
                   studentResponse
                   studentID
                   studentName
+                  teacherName
                   isCorrect
                   inputUnitOfMeasure
                   inputValue
@@ -122,6 +123,7 @@ const userclient = new ApolloClient({
                   studentResponse
                   studentID
                   studentName
+                  teacherName
                   isCorrect
                   inputUnitOfMeasure
                   inputValue
